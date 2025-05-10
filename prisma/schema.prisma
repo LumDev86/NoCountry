@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  messages  Message[]
+  chats     ChatParticipant[]
+  createdAt DateTime @default(now())
+}
+
+model Chat {
+  id             String             @id @default(uuid())
+  type           ChatType
+  name           String?
+  messages       Message[]
+  participants   ChatParticipant[]
+  createdAt      DateTime           @default(now())
+}
+
+model ChatParticipant {
+  id        String   @id @default(uuid())
+  chatId    String
+  userId    String
+  joinedAt  DateTime @default(now())
+
+  chat      Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([chatId, userId])
+}
+
+model Message {
+  id          String    @id @default(uuid())
+  content     String
+  senderId    String
+  chatId      String
+  timestamp   DateTime  @default(now())
+  replyToId   String?   // Mensaje al que se responde, si aplica
+  isRead      Boolean   @default(false) // 👈 Nuevo campo
+
+  sender      User      @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  chat        Chat      @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  replyTo     Message?  @relation("ReplyTo", fields: [replyToId], references: [id])
+  replies     Message[] @relation("ReplyTo")
+
+  @@index([chatId])
+  @@index([senderId])
+}
+
+enum ChatType {
+  ONE_ON_ONE
+  GROUP
+  SUBGROUP
+}
+
+
