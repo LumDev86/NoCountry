@@ -3,7 +3,7 @@
 
 ## Descripción
 
-Este proyecto es una implementación de un sistema backend para gestionar mensajes en una aplicación tipo chat. Permite crear, leer, marcar como leídos, filtrar por usuario, por tipo de chat y obtener respuestas a mensajes, siguiendo principios de arquitectura limpia y buenas prácticas de desarrollo.
+Este proyecto es una implementación de un sistema backend para gestionar mensajes en una aplicación tipo chat. Permite crear, leer, guardar mensajes, enviar mensajes, marcar como leídos, filtrar por usuario, por tipo de chat y obtener respuestas a mensajes, siguiendo principios de arquitectura limpia y buenas prácticas de desarrollo.
 
 ---
 
