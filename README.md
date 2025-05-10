@@ -1,9 +1,31 @@
-
-# 📬 Sistema de Gestión de Mensajes - Prueba Técnica
+![Texto alternativo](./img/nocountrytalent_cover.jpg)
+# 📬 Sistema de Gestión de Mensajes (Comunicación Interna) - Prueba Técnica
 
 ## Descripción
 
 Este proyecto es una implementación de un sistema backend para gestionar mensajes en una aplicación tipo chat. Permite crear, leer, marcar como leídos, filtrar por usuario, por tipo de chat y obtener respuestas a mensajes, siguiendo principios de arquitectura limpia y buenas prácticas de desarrollo.
+
+---
+
+## 📌 Decisión de la funcionalidad
+
+La razón por la cual decidí desarrollar la funcionalidad de mensajería es porque considero que **la comunicación** es fundamental en cualquier equipo, especialmente en un entorno de simulación como el que propone **NoCountry**.
+
+De las tres funcionalidades sugeridas, todas eran valiosas, pero la de comunicación me pareció esencial para:
+- Garantizar que los participantes puedan intercambiar información de forma clara y organizada.
+- Simular un entorno laboral realista, donde la mensajería interna entre compañeros y líderes de proyecto es clave.
+- Agregar una capa de colaboración que potencia el trabajo grupal.
+
+Además, esta elección me permitió diseñar una arquitectura reutilizable y escalable que puede crecer con el proyecto.
+
+## 🧠 Aprendizaje y Nuevas Tecnologías
+
+Gracias a esta prueba técnica, tuve la oportunidad de conocer y trabajar con tecnologías que no había utilizado en profundidad antes, como:
+
+- **Prisma**
+- **Supabase**
+
+Esta experiencia amplió mis conocimientos en el desarrollo backend y la construcción de APIs robustas, y reforzó mi interés por seguir profundizando en arquitecturas bien diseñadas.
 
 ---
 
@@ -13,7 +35,7 @@ Este proyecto es una implementación de un sistema backend para gestionar mensaj
 - **TypeScript**
 - **Prisma ORM**
 - **Supabase (PostgreSQL)**
-- Arquitectura monolítica basada en Controladores, Servicios y Rutas
+- **Postman**
 
 ---
 
@@ -21,7 +43,7 @@ Este proyecto es una implementación de un sistema backend para gestionar mensaj
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/usuario/proyecto-mensajes.git
+   git clone https://github.com/LumDev86/NoCountry.git
    cd proyecto-mensajes
    ```
 
@@ -32,7 +54,7 @@ Este proyecto es una implementación de un sistema backend para gestionar mensaj
 
 3. Configurar la base de datos en `.env`:
    ```env
-   DATABASE_URL=postgresql://usuario:contraseña@localhost:5432/nombre_db
+   DATABASE_URL=postgresql_supabase://usuario:contraseña@localhost:5432/nombre_db
    ```
 
 4. Ejecutar migraciones (si aplica):
@@ -47,17 +69,55 @@ Este proyecto es una implementación de un sistema backend para gestionar mensaj
 
 ---
 
+## 📁 Estructura del Proyecto
+
+```
+📦src
+ ┣ 📂controllers
+ ┃   ┗ 📜message.controller.ts
+ ┃   ┗ 📜chats.controller.ts
+ ┃   ┗ 📜users.controller.ts
+ ┣ 📂services
+ ┃   ┗ 📜message.service.ts
+ ┃   ┗ 📜chats.service.ts
+ ┃   ┗ 📜users.service.ts
+ ┣ 📂routes
+ ┃   ┗ 📜message.routes.ts
+ ┃   ┗ 📜chats.routes.ts
+ ┃   ┗ 📜users.routes.ts
+ ┗ 📂config
+   ┗ 📜prismaClient.ts
+```
+
+---
+
 ## 🚀 Endpoints principales
+
+### Endpoint base: api/messages
 
 | Método | Ruta                                 | Descripción                            |
 |--------|--------------------------------------|----------------------------------------|
-| POST   | `/messages`                          | Crear un nuevo mensaje                 |
-| GET    | `/messages/chat/:chatId`             | Obtener mensajes de un chat            |
-| GET    | `/messages/user/:userId`             | Obtener mensajes por usuario           |
-| PATCH  | `/messages/:messageId/read`          | Marcar un mensaje como leído           |
-| GET    | `/messages/chatType/:chatType`       | Mensajes por tipo de chat (paginado)   |
-| GET    | `/messages/:messageId/replies`       | Obtener respuestas a un mensaje        |
-| GET    | `/messages/unread/:userId`           | Obtener mensajes no leídos por usuario |
+| POST   | `/`                          | Crear un nuevo mensaje                 |
+| GET    | `/chat/:chatId`             | Obtener mensajes de un chat            |
+| GET    | `/user/:userId`             | Obtener mensajes por usuario           |
+| PATCH  | `/:messageId/read`          | Marcar un mensaje como leído           |
+| GET    | `/chatType/:chatType`       | Mensajes por tipo de chat (GROUP-ONE_ON_ONE-SUBGROUP)   |
+| GET    | `/:messageId/replies`       | Obtener respuestas a un mensaje        |
+| GET    | `/unread/:userId`           | Obtener mensajes no leídos por usuario |
+
+### Endpoint base: api/users
+
+| Método | Ruta                                 | Descripción                            |
+|--------|--------------------------------------|----------------------------------------|
+| POST   | `/`                          | Crear un nuevo usuario                 |
+| GET    | `/`             | Obtener usuarios            |
+
+### Endpoint base: api/chats
+
+| Método | Ruta                                 | Descripción                            |
+|--------|--------------------------------------|----------------------------------------|
+| POST   | `/`                          | Crear un nuevo chat                 |
+| GET    | `/`             | Obtener mensajes de un chat            |
 
 ---
 
@@ -80,6 +140,7 @@ La arquitectura fue pensada para mantener separación de responsabilidades, faci
 ## 📌 Mejora futura sugerida
 
 - Soporte para WebSocket (mensajes en tiempo real)
+- Microservicios
 - Validaciones con Zod/Joi
 - Manejo de archivos adjuntos
 - Seguridad y autenticación con JWT
@@ -90,4 +151,3 @@ La arquitectura fue pensada para mantener separación de responsabilidades, faci
 
 **Lucas Matias Segovia**  
 📧 lms.segovia86@gmail.com  
-💼 En busca de mi primera oportunidad IT
