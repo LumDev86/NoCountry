@@ -69,6 +69,18 @@ Esta experiencia amplió mis conocimientos en el desarrollo backend y la constru
 
 ---
 
+## 📄 Estructura de la Base de Datos
+![Base de datos](./img//diagrama%20base%20de%20datos.PNG)
+
+### 🔄 Relaciones entre tablas
+
+- User ↔ ChatParticipant: Un usuario puede estar en múltiples chats.
+- Chat ↔ ChatParticipant: Un chat puede tener múltiples participantes.
+- Chat ↔ Message: Un chat contiene múltiples mensajes.
+- User ↔ Message: Un usuario puede enviar múltiples mensajes.
+
+---
+
 ## 📁 Estructura del Proyecto
 
 ```
