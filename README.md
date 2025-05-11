@@ -7,7 +7,7 @@ Este proyecto es una implementación de un sistema backend para gestionar mensaj
 
 ---
 
-## 📌 Decisión de la funcionalidad
+## ✅ Decisión de la funcionalidad
 
 La razón por la cual decidí desarrollar la funcionalidad de mensajería es porque considero que **la comunicación** es fundamental en cualquier equipo, especialmente en un entorno de simulación como el que propone **NoCountry**.
 
