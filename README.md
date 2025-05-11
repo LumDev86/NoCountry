@@ -131,8 +131,13 @@ Esta experiencia amplió mis conocimientos en el desarrollo backend y la constru
 | POST   | `/`                          | Crear un nuevo chat                 |
 | GET    | `/`             | Obtener mensajes de un chat            |
 
-## Consultas endPoints en swagge
-http://localhost:3000/api/docs/#/Users/get_users
+## Consultas endPoints en swagger
+Una vez clonado o descargado el repositorio, puedes acceder a la documentación completa de los endpoints mediante Swagger UI
+accede a:
+
+http://localhost:PUERTO/api/docs/#/Users/get_users
+
+Aquí encontrarás una interfaz interactiva con todos los endpoints documentados de la API.
 
 ---
 
