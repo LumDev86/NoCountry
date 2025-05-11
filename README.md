@@ -135,7 +135,7 @@ Esta experiencia amplió mis conocimientos en el desarrollo backend y la constru
 Una vez clonado o descargado el repositorio, puedes acceder a la documentación completa de los endpoints mediante Swagger UI
 accede a:
 
-http://localhost:PUERTO/api/docs/#/Users/get_users
+http://localhost:PUERTO/api/docs/
 
 Aquí encontrarás una interfaz interactiva con todos los endpoints documentados de la API.
 
