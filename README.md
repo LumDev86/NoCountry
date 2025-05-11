@@ -131,6 +131,9 @@ Esta experiencia amplió mis conocimientos en el desarrollo backend y la constru
 | POST   | `/`                          | Crear un nuevo chat                 |
 | GET    | `/`             | Obtener mensajes de un chat            |
 
+## Consultas endPoints en swagge
+http://localhost:3000/api/docs/#/Users/get_users
+
 ---
 
 ## ✅ Características técnicas
