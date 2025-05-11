@@ -69,7 +69,7 @@ Esta experiencia amplió mis conocimientos en el desarrollo backend y la constru
 
 ---
 
-## 📄 Estructura de la Base de Datos
+## 🛢️ Estructura de la Base de Datos
 ![Base de datos](./img/diagrama%20base%20de%20datos.PNG)
 
 ### 🔄 Relaciones entre tablas
